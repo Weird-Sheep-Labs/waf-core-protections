@@ -10,9 +10,7 @@ class WAFCoreProtectionsStack(Stack):
         wafv2.CfnWebACL(
             scope_=self,
             id="WebACL",
-            default_action=wafv2.CfnWebACL.DefaultActionProperty(
-                allow=wafv2.CfnWebACL.AllowActionProperty()
-            ),
+            default_action=wafv2.CfnWebACL.DefaultActionProperty(allow={}),
             scope="CLOUDFRONT",
             visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                 cloud_watch_metrics_enabled=True,
@@ -34,6 +32,7 @@ class WAFCoreProtectionsStack(Stack):
                         metric_name="WebACL-AIPRL",
                         sampled_requests_enabled=True,
                     ),
+                    override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
                 ),
                 wafv2.CfnWebACL.RuleProperty(
                     name="CRSRule",
@@ -48,6 +47,7 @@ class WAFCoreProtectionsStack(Stack):
                         metric_name="WebACL-CRS",
                         sampled_requests_enabled=True,
                     ),
+                    override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
                 ),
                 wafv2.CfnWebACL.RuleProperty(
                     name="KBIRSRule",
@@ -63,6 +63,7 @@ class WAFCoreProtectionsStack(Stack):
                         metric_name="WebACL-KBIRS",
                         sampled_requests_enabled=True,
                     ),
+                    override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
                 ),
             ],
         )
