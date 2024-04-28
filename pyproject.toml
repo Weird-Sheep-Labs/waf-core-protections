@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "waf-core-protections"
+version = "0.1.0"
+description = "CDK stack for WAF with core protections"
+authors = ["Armand Rego <armand@weirdsheeplabs.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aws-cdk-lib = "^2.139.0"
+constructs = "^10.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.7.0"
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
