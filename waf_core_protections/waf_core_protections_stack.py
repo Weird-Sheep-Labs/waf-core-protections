@@ -19,7 +19,7 @@ class WAFCoreProtectionsStack(Stack):
             ),
             rules=[
                 wafv2.CfnWebACL.RuleProperty(
-                    name="AIPRLRule",
+                    name="AWSManagedRulesAmazonIpReputationList",
                     priority=0,
                     statement=wafv2.CfnWebACL.StatementProperty(
                         managed_rule_group_statement=wafv2.CfnWebACL.ManagedRuleGroupStatementProperty(
@@ -35,7 +35,7 @@ class WAFCoreProtectionsStack(Stack):
                     override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
                 ),
                 wafv2.CfnWebACL.RuleProperty(
-                    name="CRSRule",
+                    name="AWSManagedRulesCommonRuleSet",
                     priority=10,
                     statement=wafv2.CfnWebACL.StatementProperty(
                         managed_rule_group_statement=wafv2.CfnWebACL.ManagedRuleGroupStatementProperty(
@@ -50,7 +50,7 @@ class WAFCoreProtectionsStack(Stack):
                     override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
                 ),
                 wafv2.CfnWebACL.RuleProperty(
-                    name="KBIRSRule",
+                    name="AWSManagedRulesKnownBadInputsRuleSet",
                     priority=20,
                     statement=wafv2.CfnWebACL.StatementProperty(
                         managed_rule_group_statement=wafv2.CfnWebACL.ManagedRuleGroupStatementProperty(
