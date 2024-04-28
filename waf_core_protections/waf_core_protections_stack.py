@@ -9,12 +9,12 @@ class WAFCoreProtectionsStack(Stack):
 
         wafv2.CfnWebACL(
             scope_=self,
-            id="WebACL",
+            id="WAFCoreProtectionsWebACL",
             default_action=wafv2.CfnWebACL.DefaultActionProperty(allow={}),
             scope="CLOUDFRONT",
             visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                 cloud_watch_metrics_enabled=True,
-                metric_name="WebACL",
+                metric_name="WAFCoreProtectionsWebACL",
                 sampled_requests_enabled=True,
             ),
             rules=[
@@ -29,7 +29,7 @@ class WAFCoreProtectionsStack(Stack):
                     ),
                     visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                         cloud_watch_metrics_enabled=True,
-                        metric_name="WebACL-AIPRL",
+                        metric_name="WAFCoreProtectionsWebACL-AIPRL",
                         sampled_requests_enabled=True,
                     ),
                     override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
@@ -44,7 +44,7 @@ class WAFCoreProtectionsStack(Stack):
                     ),
                     visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                         cloud_watch_metrics_enabled=True,
-                        metric_name="WebACL-CRS",
+                        metric_name="WAFCoreProtectionsWebACL-CRS",
                         sampled_requests_enabled=True,
                     ),
                     override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
@@ -60,7 +60,7 @@ class WAFCoreProtectionsStack(Stack):
                     ),
                     visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                         cloud_watch_metrics_enabled=True,
-                        metric_name="WebACL-KBIRS",
+                        metric_name="WAFCoreProtectionsWebACL-KBIRS",
                         sampled_requests_enabled=True,
                     ),
                     override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
